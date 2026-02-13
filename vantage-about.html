@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us – Vantage Resourcing</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-navy: #1a2332;
+            --accent-gold: #c9a961;
+            --soft-cream: #f8f6f3;
+            --dark-slate: #2c3e50;
+            --light-gray: #e8e6e1;
+            --text-primary: #1a2332;
+            --text-secondary: #5a6c7d;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            color: var(--text-primary);
+            line-height: 1.6;
+            background: var(--white);
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.2rem 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            height: 45px;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 500;
+            font-size: 0.95rem;
+            letter-spacing: 0.3px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            color: var(--accent-gold);
+        }
+
+        .cta-button {
+            background: var(--accent-gold);
+            color: var(--white);
+            padding: 0.75rem 1.8rem;
+            border-radius: 2px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: var(--primary-navy);
+            transform: translateY(-2px);
+        }
+
+        /* Hero */
+        .page-hero {
+            margin-top: 80px;
+            padding: 6rem 4rem;
+            background: linear-gradient(135deg, var(--primary-navy) 0%, var(--dark-slate) 100%);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .page-hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .page-hero .breadcrumb {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+        }
+
+        /* About Section */
+        .about-intro {
+            padding: 6rem 4rem;
+            background: var(--white);
+        }
+
+        .about-content {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .about-content .label {
+            color: var(--accent-gold);
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .about-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--primary-navy);
+            margin-bottom: 2rem;
+            line-height: 1.3;
+        }
+
+        .about-content p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            line-height: 1.9;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Team Section */
+        .team-section {
+            padding: 6rem 4rem;
+            background: var(--soft-cream);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .section-header .label {
+            color: var(--accent-gold);
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: var(--primary-navy);
+        }
+
+        .team-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 5rem;
+        }
+
+        .team-member {
+            display: grid;
+            grid-template-columns: 400px 1fr;
+            gap: 4rem;
+            background: var(--white);
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
+        }
+
+        .team-member:nth-child(even) {
+            grid-template-columns: 1fr 400px;
+        }
+
+        .team-member:nth-child(even) .member-image {
+            order: 2;
+        }
+
+        .member-image {
+            height: 100%;
+            min-height: 500px;
+        }
+
+        .member-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .member-info {
+            padding: 4rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .member-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: var(--primary-navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .member-title {
+            color: var(--accent-gold);
+            font-weight: 600;
+            margin-bottom: 2rem;
+            font-size: 1.05rem;
+        }
+
+        .member-bio {
+            color: var(--text-secondary);
+            line-height: 1.85;
+            font-size: 1.05rem;
+        }
+
+        .member-bio p {
+            margin-bottom: 1.5rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--primary-navy);
+            color: var(--white);
+            padding: 5rem 4rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-about h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-about p {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .footer-social a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--white);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-social a:hover {
+            background: var(--accent-gold);
+            transform: translateY(-3px);
+        }
+
+        .footer-links h4 {
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent-gold);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        @media (max-width: 1200px) {
+            .team-member {
+                grid-template-columns: 1fr;
+            }
+
+            .team-member:nth-child(even) {
+                grid-template-columns: 1fr;
+            }
+
+            .team-member:nth-child(even) .member-image {
+                order: 0;
+            }
+
+            .member-info {
+                padding: 3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .page-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .member-info {
+                padding: 2rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <a href="vantage-home.html">
+                <img src="https://vantageresourcing.com/wp-content/uploads/2024/05/Vantage_Resourcing_Final_Logo.svg" alt="Vantage Resourcing" class="logo">
+            </a>
+            <ul class="nav-menu">
+                <li><a href="vantage-home.html#about">About</a></li>
+                <li><a href="vantage-home.html#employers">Employers</a></li>
+                <li><a href="vantage-home.html#candidates">Candidates</a></li>
+                <li><a href="vantage-home.html#jobs">Jobs</a></li>
+                <li><a href="vantage-home.html#resources">Resources</a></li>
+                <li><a href="vantage-home.html#contact" class="cta-button">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <h1>About Vantage</h1>
+        <p class="breadcrumb">Home / About</p>
+    </section>
+
+    <!-- About Introduction -->
+    <section class="about-intro">
+        <div class="about-content">
+            <div class="label">Who We Are</div>
+            <h2>Specialized Recruitment Excellence for the Accounting Industry</h2>
+            <p>Vantage Resourcing is a boutique search firm that specializes in powerful recruitment solutions for the Accounting industry. With a <strong>commitment to integrity, dedication, and innovation</strong>, Vantage excels at delivering the ideal people for organizations and the ultimate jobs for candidates. Our focus is on public practice, where the demand for precision and expertise is paramount. We understand the unique challenges and opportunities within this sector and leverage our deep industry knowledge to connect top talent with leading firms.</p>
+            
+            <p>At Vantage Resourcing, we pride ourselves on a personalized approach to recruitment. Each candidate and client is unique, and we tailor our strategies to meet specific needs and aspirations. Our team of seasoned recruiters employs a meticulous process of selection and matching, ensuring that each placement is not just a fit, but a perfect alignment of skills, values, and long-term goals. This hands-on, consultative approach allows us to consistently achieve outstanding results and build lasting relationships within the accounting community.</p>
+            
+            <p>We believe that our success is directly linked to the success of our clients and candidates. This belief drives us to uphold the highest standards of service and ethics in all our interactions. By fostering a culture of continuous improvement and staying at the forefront of industry trends and innovations, Vantage Resourcing remains a trusted partner in the ever-evolving world of public practice accounting recruitment.</p>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section">
+        <div class="section-header">
+            <div class="label">Meet The Team</div>
+            <h2>Expert Recruitment Professionals</h2>
+        </div>
+
+        <div class="team-grid">
+            <!-- Nicole Smith -->
+            <div class="team-member">
+                <div class="member-image">
+                    <img src="https://vantageresourcing.com/wp-content/uploads/2024/05/nsmith.jpeg" alt="Nicole Smith">
+                </div>
+                <div class="member-info">
+                    <h3>Nicole Smith</h3>
+                    <div class="member-title">Managing Director, Talent Consultant</div>
+                    <div class="member-bio">
+                        <p>Nicole is a seasoned recruitment professional with over 15 years of HR and Recruitment expertise. Throughout her career, she has demonstrated a knack for sourcing top talent and cultivating strong client relationships across a spectrum of industries, ranging from finance to consumer goods and consulting. Having navigated both large corporate environments and small to midsize organizations, Nicole possesses a nuanced understanding of the recruitment landscape. Her diverse experience equips her with the agility to tailor recruitment strategies to meet the unique needs of each client.</p>
+                        
+                        <p>Nicole's specialty lies in conducting comprehensive searches, leveraging platforms such as LinkedIn and job boards to pinpoint top-tier candidates for placements across Canada and the US. Her commitment to excellence is underscored by her proven track record of success in delivering exceptional results for her clients. With Nicole's guidance, you can trust that your recruitment needs will be met with precision and expertise.</p>
+                        
+                        <p>Outside of her professional endeavors, Nicole enjoys spending time with her husband, son and family pets. She also has a passion for golf and interior decorating, finding relaxation and inspiration in these activities.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sheila Carney -->
+            <div class="team-member">
+                <div class="member-image">
+                    <img src="https://vantageresourcing.com/wp-content/uploads/2020/06/headshot-hands-clasped.jpg" alt="Sheila Carney">
+                </div>
+                <div class="member-info">
+                    <h3>Sheila Carney</h3>
+                    <div class="member-title">Founder and President</div>
+                    <div class="member-bio">
+                        <p>Sheila Carney is a first class Recruiter and Career Strategist for accountants with 1-20 years post qualifying experience. Known as someone who "makes things happen," she's built durable, referable relationships because she's earned the trust of clients and colleagues with her competence and commitment. Often told she's "different from other recruiters," Sheila takes the time to understand her clients' unique situations and prepare them for what lies ahead.</p>
+                        
+                        <p>Sheila has two decades of experience guiding accounting careers, including senior and executive positions with the world's largest search firms in the U.K., Canada and Australia. Earning her stripes in a competitive arena, Sheila has led small teams of four and large, complex teams of up to 65, including managers. As a former Senior Director for a multinational software company, Sheila also acquired first-hand knowledge of the corporate mindset and best practices for hiring high-caliber individuals.</p>
+                        
+                        <p>Always wanting to set the bar high and deliver expert counsel, Sheila is a lifelong learner. Apart from her LLB Law, she has earned the designations of Certified Behavioural Interviewer, Certified Career Management Coach and Certified Personal Branding Strategist. She is also a Results Trained Coach through the Neuroleadership Institute and is a Birkman Certified Professional.</p>
+                        
+                        <p>Personally, she is happiest when being with her family and friends and she also enjoys soaking up the great conversation with good company on a hike, or, while out playing golf!</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Penny -->
+            <div class="team-member">
+                <div class="member-image">
+                    <img src="https://vantageresourcing.com/wp-content/uploads/2024/05/Screenshot-2024-05-29-at-6.49.31 PM.png" alt="Penny">
+                </div>
+                <div class="member-info">
+                    <h3>Penny</h3>
+                    <div class="member-title">Cuddler-In-Chief</div>
+                    <div class="member-bio">
+                        <p>Introducing Penny, the Cuddler-In-Chief! Penny excels at turning stressful job searches into tail-waggingly good times. Her favourite task? Conducting "bark analysis" to help us fetch the best talent in the accounting world.</p>
+                        
+                        <p>With her keen eye for detail and a playful spirit, Penny ensures that every candidate feels welcomed and confident. She's the ultimate icebreaker in client meetings and guarantees that everyone leaves with a smile and a little extra fur on their clothes.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ruby -->
+            <div class="team-member">
+                <div class="member-image">
+                    <img src="https://vantageresourcing.com/wp-content/uploads/2024/05/Screenshot-2024-05-29-at-6.49.11 PM.png" alt="Ruby">
+                </div>
+                <div class="member-info">
+                    <h3>Ruby</h3>
+                    <div class="member-title">Chief Barketing Officer</div>
+                    <div class="member-bio">
+                        <p>Meet Ruby, our Chief Barketing Officer! With a nose for talent and a knack for sniffing out the best candidates, Ruby ensures every resume gets the paw of approval.</p>
+                        
+                        <p>When she's not busy keeping morale high with her endless supply of cuddles, you'll find her auditing the treat jar with unparalleled enthusiasm. Ruby believes that every good hire deserves a belly rub, and she's always ready to lend a listening ear (or ear scratch) during those tough interview prep sessions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-about">
+                <h3>Vantage Resourcing</h3>
+                <p>A boutique search firm that specializes in powerful recruitment solutions for the Accounting industry. With integrity, dedication, and innovation.</p>
+                <div class="footer-social">
+                    <a href="https://www.linkedin.com/company/vantage-resourcing/" target="_blank">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="vantage-about.html">About</a></li>
+                    <li><a href="vantage-home.html#employers">Employers</a></li>
+                    <li><a href="vantage-home.html#candidates">Candidates</a></li>
+                    <li><a href="vantage-home.html#jobs">View Jobs</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h4>For Employers</h4>
+                <ul>
+                    <li><a href="#">Interviewing Candidates</a></li>
+                    <li><a href="#">Onboarding</a></li>
+                    <li><a href="#">Candidate Offers</a></li>
+                    <li><a href="#">Job Descriptions</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h4>For Candidates</h4>
+                <ul>
+                    <li><a href="#">Job Interviews</a></li>
+                    <li><a href="#">Recruiting Readiness</a></li>
+                    <li><a href="#">Reference Checking</a></li>
+                    <li><a href="#">Resigning Tips</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Vantage Resourcing. All rights reserved. | <a href="#" style="color: inherit;">Privacy Policy</a></p>
+        </div>
+    </footer>
+</body>
+</html>
